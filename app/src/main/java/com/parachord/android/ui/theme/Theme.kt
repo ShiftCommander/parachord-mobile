@@ -34,7 +34,7 @@ private val DarkColorScheme = darkColorScheme(
     outline = ShadcnPalette.Dark.border,
     outlineVariant = ShadcnPalette.Dark.input,
     error = ShadcnPalette.Dark.destructive,
-    onError = Color.White,
+    onError = Color.Black,
 )
 
 private val LightColorScheme = lightColorScheme(
