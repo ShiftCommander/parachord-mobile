@@ -105,9 +105,6 @@ private val DarkExtendedColors = ParachordExtendedColors(
     accentSurface = ShadcnPalette.Dark.accent,
     cardBackground = ShadcnPalette.Dark.card,
     cardBorder = ShadcnPalette.Dark.border,
-),
-    cardBackground = CardBgDark,
-    cardBorder = CardBorderDark,
 )
 
 val LocalParachordColors = staticCompositionLocalOf { LightExtendedColors }
