@@ -3,32 +3,30 @@ package com.parachord.android.ui.theme
 import androidx.compose.ui.graphics.Color
 
 /**
- * Parachord color palette — matches the desktop app's CSS design tokens.
- *
- * Desktop uses purple (#7c3aed light / #a78bfa dark) as the primary accent.
- * See CLAUDE.md for the full color reference.
+ * Legacy color aliases now backed by the exact shared shadcn Neutral palette.
+ * Names are retained temporarily for existing consumers across the app.
+ * New components should use ShadcnPalette or MaterialTheme.colorScheme.
  */
+// ── Legacy accent aliases (neutral shadcn primary) ──────────────────────────────────────────────
+val PurpleLight = ShadcnPalette.Light.primary
+val PurpleDark = ShadcnPalette.Dark.primary
+val PurpleHoverLight = ShadcnPalette.Light.foreground
+val PurpleHoverDark = ShadcnPalette.Dark.foreground
+val PurpleSecondary = ShadcnPalette.Light.primary
+val PurpleTertiary = ShadcnPalette.Light.primary
+val PurpleSoft = ShadcnPalette.Light.mutedForeground
+val PurpleSurface = ShadcnPalette.Light.accent
 
-// ── Accent Purple Scale ──────────────────────────────────────────────
-val PurpleLight = Color(0xFF7C3AED)        // --accent-primary (light)
-val PurpleDark = Color(0xFFA78BFA)         // --accent-primary (dark)
-val PurpleHoverLight = Color(0xFF6D28D9)   // --accent-primary-hover (light)
-val PurpleHoverDark = Color(0xFF8B5CF6)    // --accent-primary-hover (dark)
-val PurpleSecondary = Color(0xFF8B5CF6)    // --accent-secondary
-val PurpleTertiary = Color(0xFFA855F7)     // --accent-tertiary
-val PurpleSoft = Color(0xFFA78BFA)         // --accent-soft
-val PurpleSurface = Color(0xFFEDE9FE)      // --accent-surface
-
-// Alpha variants (matching desktop rgba(124,58,237,x))
-val PurpleAlpha06 = Color(0x0F7C3AED)      // 6% opacity
-val PurpleAlpha10 = Color(0x1A7C3AED)      // 10% opacity
-val PurpleAlpha20 = Color(0x337C3AED)      // 20% opacity
-val PurpleAlpha40 = Color(0x667C3AED)      // 40% opacity
-val PurpleAlpha60 = Color(0x997C3AED)      // 60% opacity
+// Alpha variants of the selected shadcn primary
+val PurpleAlpha06 = ShadcnPalette.Light.primary.copy(alpha = 0.06f)
+val PurpleAlpha10 = ShadcnPalette.Light.primary.copy(alpha = 0.10f)
+val PurpleAlpha20 = ShadcnPalette.Light.primary.copy(alpha = 0.20f)
+val PurpleAlpha40 = ShadcnPalette.Light.primary.copy(alpha = 0.40f)
+val PurpleAlpha60 = ShadcnPalette.Light.primary.copy(alpha = 0.60f)
 
 // Dark theme alpha variants
-val PurpleDarkAlpha10 = Color(0x1AA78BFA)
-val PurpleDarkAlpha20 = Color(0x33A78BFA)
+val PurpleDarkAlpha10 = ShadcnPalette.Dark.primary.copy(alpha = 0.10f)
+val PurpleDarkAlpha20 = ShadcnPalette.Dark.primary.copy(alpha = 0.20f)
 
 // ── Semantic Colors ──────────────────────────────────────────────────
 val Success = Color(0xFF10B981)
@@ -37,43 +35,43 @@ val Error = Color(0xFFEF4444)
 
 // ── Background Colors ────────────────────────────────────────────────
 // Light theme
-val BgPrimaryLight = Color(0xFFFFFFFF)
-val BgSecondaryLight = Color(0xFFF9FAFB)
-val BgElevatedLight = Color(0xFFFFFFFF)
-val BgInsetLight = Color(0xFFF3F4F6)
+val BgPrimaryLight = ShadcnPalette.Light.background
+val BgSecondaryLight = ShadcnPalette.Light.secondary
+val BgElevatedLight = ShadcnPalette.Light.card
+val BgInsetLight = ShadcnPalette.Light.muted
 
 // Dark theme
-val BgPrimaryDark = Color(0xFF161616)
-val BgSecondaryDark = Color(0xFF1E1E1E)
-val BgElevatedDark = Color(0xFF252525)
-val BgInsetDark = Color(0xFF1A1A1A)
+val BgPrimaryDark = ShadcnPalette.Dark.background
+val BgSecondaryDark = ShadcnPalette.Dark.secondary
+val BgElevatedDark = ShadcnPalette.Dark.card
+val BgInsetDark = ShadcnPalette.Dark.muted
 
 // ── Text Colors ──────────────────────────────────────────────────────
-val TextPrimaryLight = Color(0xFF111827)
-val TextSecondaryLight = Color(0xFF6B7280)
-val TextTertiaryLight = Color(0xFF9CA3AF)
+val TextPrimaryLight = ShadcnPalette.Light.foreground
+val TextSecondaryLight = ShadcnPalette.Light.mutedForeground
+val TextTertiaryLight = ShadcnPalette.Light.mutedForeground
 
-val TextPrimaryDark = Color(0xFFF3F4F6)
-val TextSecondaryDark = Color(0xFF9CA3AF)
-val TextTertiaryDark = Color(0xFF6B7280)
+val TextPrimaryDark = ShadcnPalette.Dark.foreground
+val TextSecondaryDark = ShadcnPalette.Dark.mutedForeground
+val TextTertiaryDark = ShadcnPalette.Dark.mutedForeground
 
 // ── Border Colors ────────────────────────────────────────────────────
-val BorderDefaultLight = Color(0xFFE5E7EB)
-val BorderLightLight = Color(0xFFF3F4F6)
-val BorderDefaultDark = Color(0xFF2E2E2E)
-val BorderLightDark = Color(0xFF252525)
+val BorderDefaultLight = ShadcnPalette.Light.border
+val BorderLightLight = ShadcnPalette.Light.input
+val BorderDefaultDark = ShadcnPalette.Dark.border
+val BorderLightDark = ShadcnPalette.Dark.input
 
 // ── Card Colors ──────────────────────────────────────────────────────
-val CardBgLight = Color(0xFFFFFFFF)
-val CardBorderLight = Color(0xFFE5E7EB)
-val CardBgDark = Color(0xFF1E1E1E)
-val CardBorderDark = Color(0xFF2A2A2A)
+val CardBgLight = ShadcnPalette.Light.card
+val CardBorderLight = ShadcnPalette.Light.border
+val CardBgDark = ShadcnPalette.Dark.card
+val CardBorderDark = ShadcnPalette.Dark.border
 
 // ── Always-Dark Player Surface ───────────────────────────────────────
-val PlayerSurface = Color(0xFF161616)
-val PlayerSurfaceElevated = Color(0xFF1E1E1E)
-val PlayerTextPrimary = Color(0xFFF3F4F6)
-val PlayerTextSecondary = Color(0xFF9CA3AF)
+val PlayerSurface = ShadcnPalette.Dark.background
+val PlayerSurfaceElevated = ShadcnPalette.Dark.card
+val PlayerTextPrimary = ShadcnPalette.Dark.foreground
+val PlayerTextSecondary = ShadcnPalette.Dark.mutedForeground
 
 // ── Resolver-Specific Colors ─────────────────────────────────────────
 // Each resolver has a background (alpha-20) and text (bright) color pair.
