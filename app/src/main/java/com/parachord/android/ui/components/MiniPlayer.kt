@@ -11,12 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.Pause
-import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.SkipNext
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -28,6 +22,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.res.painterResource
+import com.parachord.android.R
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.draw.clip
@@ -133,7 +129,7 @@ fun MiniPlayer(
                 ),
             ) {
                 Icon(
-                    imageVector = if (isFavorited) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                    painter = painterResource(if (isFavorited) R.drawable.phosphor_heart_fill else R.drawable.phosphor_heart),
                     contentDescription = if (isFavorited) "Remove from Collection" else "Add to Collection",
                     modifier = Modifier.size(18.dp),
                 )
@@ -155,7 +151,7 @@ fun MiniPlayer(
                     )
                 } else {
                     Icon(
-                        imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
+                        painter = painterResource(if (isPlaying) R.drawable.phosphor_pause else R.drawable.phosphor_play),
                         contentDescription = if (isPlaying) "Pause" else "Play",
                         modifier = Modifier.size(24.dp),
                     )
@@ -171,7 +167,7 @@ fun MiniPlayer(
                 ),
             ) {
                 Icon(
-                    imageVector = Icons.Default.SkipNext,
+                    painter = painterResource(R.drawable.phosphor_skip_forward),
                     contentDescription = "Next",
                     modifier = Modifier.size(20.dp),
                 )
