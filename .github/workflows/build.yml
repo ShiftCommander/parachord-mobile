@@ -20,6 +20,10 @@ concurrency:
 
 jobs:
   build:
+    # Release signing keys belong to the upstream project. Personal fork CI
+    # builds signed debug APKs in personal-design-ci.yml. Releases can be
+    # requested manually after configuring the fork's own keystore secrets.
+    if: github.repository == 'Parachord/parachord-mobile' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     env:
       # Gates the Play Store upload step. Evaluated at job-init time so
